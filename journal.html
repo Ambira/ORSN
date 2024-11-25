@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORSN - Journal</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <style>
+        .bg-primary {
+            background-color: #28a745; /* Green background color */
+        }
+        .text-primary {
+            color: #28a745; /* Green text color */
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .journal-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        /* Added padding-top to prevent content from hiding behind the navbar */
+        .content-padding {
+            padding-top: 80px; /* Adjust according to your navbar height */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+<!-- Navigation Bar -->
+<header class="bg-white fixed top-0 w-full shadow-md z-50">
+    <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-green-600">
+            ORSN
+        </div>
+        <nav class="flex space-x-6">
+            <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
+            <a href="conference.html" class="text-gray-700 hover:text-green-600">Conference</a>
+            <a href="journal.html" class="text-gray-700 hover:text-green-600">Journal</a>
+            <a href="members.html" class="text-gray-700 hover:text-green-600">Members</a>
+            <a href="talk_program.html" class="text-gray-700 hover:text-green-600">Talk Program</a>
+            <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
+        </nav>
+    </div>
+</header>
+
+
+<!-- Journal Section -->
+<section class="container mx-auto px-4 py-16 content-padding">
+    <div class="section-header">
+        <h1 class="text-4xl font-bold text-primary">International Journal of Operational Research and Networking (IJORN)</h1>
+        <p class="text-xl mt-2">Explore the latest research and advancements in operational research.</p>
+    </div>
+    <div class="flex flex-row items-start"> <!-- Align items at the start -->
+        <!-- Editorial Information -->
+        <div class="editorial-info w-1/2 pr-8"> <!-- Add more padding on the right -->
+            <h2 class="text-3xl font-bold text-primary mb-4">Editorial Team</h2> <!-- Increased header size -->
+            <p><strong>Editor-in-Chief:</strong> Dr. [Name]</p>
+            <p><strong>Editors:</strong></p>
+            <ul class="list-disc list-inside">
+                <li>Prof Dr. Sunity Shresther, T.U. Nepal</li>
+                <li>Prof Dr. Shankar Pd. Khanal, T.U.</li>
+                <li>Prof. Dr. Tanka Nalk Dhamala, T.U.</li>
+                <li>Prof Dr. Hans Kellerer, University of Graz, Austria</li>
+                <li>Prof Dr. Yuri N. Sotskev, United Institute of Informatics Problems</li>
+                <li>Prof. Dr. Matthias Ehrgott, Lancaster University, UK</li>
+                <li>Dr. Govind Tamang, SOM, T.U., Nepal</li>
+                <li>Dr. Bijay Lal Pradhan, Tribhuvan University, Nepal</li>
+            </ul>
+        </div>
+        
+        <!-- IJORN Header and Year Buttons -->
+        <div class="ijorn-header w-1/2 pl-8 text-right"> <!-- Add more padding on the left -->
+            <div class="year-buttons grid grid-cols-2 gap-4"> <!-- Two-column grid -->
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2024" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2024</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/view/4006" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2023</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/view/3332" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2022</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2021" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2021</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/view/3168" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2020</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/view/3170" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2019</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2018" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2018</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2017" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2017</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2016" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2016</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2015" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2015</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2014" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2014</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2013" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2013</a>
+                <a href="https://www.nepjol.info/index.php/ijorn/issue/archive/2012" class="bg-primary text-white w-16 h-16 flex items-center justify-center rounded">2012</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About the Journal -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-4">About the Journal</h2>
+        <p class="text-gray-700">
+            The International Journal of Operational Research Nepal (IJORN) is the official journal published by Operational Research Society of Nepal (ORSN). This journal will be addressing the theoretical framework, models, computational studies and conceptual development of operations research together with current developments and practices. Hence, this journal aims to create a common platform for promoting the models, methods, applicability of operational research and constructive recommendations on optimizing the available resources. IJORN welcomes articles and issues of current interest in various disciplines of operational research including theory and practices where the applicability can be explicitly materialized. The journal publishes full-length research articles, surveys, expository reports and short notes in the related fields. The fields include continuous optimization, discrete optimization, scheduling theory and algorithms, project management, multi-criterion decision analysis, production and transportation, manufacturing and logistics, probabilistic and stochastic processes, game theory, queuing theory, inventory, neural-network, simulation, and others. It also incorporates the articles in the broader area of Statistics, Applied Statistics, statistical Modeling, new methods in Statistics, Mathematics and mathematical modeling.        </p>
+    </div>
+
+<!-- Footer -->
+<footer class="bg-primary py-6">
+    <div class="container mx-auto px-4 text-center text-white">
+        <p>&copy; 2024 Ambira Pradhan. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Flowbite and other JS dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORSN - Home</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <style>
+        .bg-primary {
+            background-color: #28a745; /* Green background color */
+        }
+        .text-primary {
+            color: #28a745; /* Green text color */
+        }
+        .hover\:text-primary:hover {
+            color: #28a745; /* Green on hover */
+        }
+        .counter-section {
+            background: linear-gradient(135deg, #28a745, #73e500); /* Green gradient */
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        #timer div {
+            display: inline-block;
+            margin: 0 15px;
+            text-align: center;
+        }
+        #timer span {
+            display: block;
+            font-size: 2rem;
+        }
+    </style>
+
+<style>
+    /* Sizing and positioning for the timeline */
+    .timeline-container {
+        display: flex;
+        gap: 3rem;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+    }
+
+    .timeline-item {
+        width: 250px;
+        text-align: center;
+        padding: 1.5rem;
+        background-color: #0aaf73;
+        border-radius: 10px;
+        color: white;
+        position: relative;
+        scroll-snap-align: start;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border: 3px solid #0aaf73;
+        border-radius: 50%;
+    }
+
+    .timeline-line {
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        background-color: white;
+        z-index: -1;
+    }
+</style>
+</head>
+<body class="bg-white-100 text-gray-900">
+
+<!-- Navigation Bar -->
+<header class="bg-white fixed top-0 w-full shadow-md z-50">
+    <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-green-600">
+            ORSN
+        </div>
+        <nav class="flex space-x-6">
+            <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
+            <a href="conference.html" class="text-gray-700 hover:text-green-600">Conference</a>
+            <a href="journal.html" class="text-gray-700 hover:text-green-600">Journal</a>
+            <a href="members.html" class="text-gray-700 hover:text-green-600">Members</a>
+            <a href="talk_program.html" class="text-gray-700 hover:text-green-600">Talk Program</a>
+            <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<div class="relative w-full h-screen bg-cover bg-center" style="background-image: url('/images/APORS.jpg');">
+    <!-- Custom RGBA Overlay for better visibility -->
+    <div class="absolute inset-0" style="background-color: rgba(255, 255, 255, 0.4);"></div> <!-- Light transparent white -->
+
+    <!-- Content Wrapper -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-black-100 text-center">
+        <h1 class="text-5xl font-bold mb-4">CONFERENCE</h1>
+        <h2 class="text-3xl mb-8">ORSN Conference</h2>
+       
+        <!-- Buttons -->
+        <div class="flex justify-between w-full max-w-xs mt-8 pt-10 pb-8">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScE6eedcYw8ZH6H8kPCb8T0nbR5PAVODThYJCqKzrpygUM9jg/viewform?usp=sf_link" 
+               class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">
+                Register
+            </a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScecUCyY4_h2nWjgLwTDWvycpUg3r2NGNXq_MXszgpk7dKqNQ/viewform?usp=sf_link" 
+               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Submit Abstract
+            </a>
+        </div>
+
+         <!-- Timer Section -->
+         <div class="mt-8 bg-opacity-50 rounded-lg p-6">
+            <h2 class="text-2xl font-semibold mb-4">ORSN Conference Countdown</h2>
+            <div id="timer" class="flex justify-center space-x-4 text-lg font-bold">
+                <div class="text-center">
+                    <span id="days" class="block text-3xl">0</span>
+                    <span>Days</span>
+                </div>
+                <div class="text-center">
+                    <span id="hours" class="block text-3xl">0</span>
+                    <span>Hours</span>
+                </div>
+                <div class="text-center">
+                    <span id="minutes" class="block text-3xl">0</span>
+                    <span>Minutes</span>
+                </div>
+                <div class="text-center">
+                    <span id="seconds" class="block text-3xl">0</span>
+                    <span>Seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Conference Section -->
+<section class="container mx-auto px-4 py-16 p-6">
+    <div class="section-header">
+        <h1 class="text-4xl font-bold text-primary pt-10">Conference</h1>
+        <p class="text-xl mt-2">Welcome to the Operational Research Conference</p>
+    </div>
+
+    <!-- Conference Theme -->
+    <div class="mb-12">
+        <h2 class="text-2xl font-bold text-primary mb-4 pt-6">Conference Theme</h2>
+        <p class="text-gray-700">
+            This conference will focus on the latest advancements in operational research, bringing together researchers and practitioners to share insights and collaborate on innovative solutions.
+        </p>
+        <p class="text-gray-700">
+            The theme for this year's conference is <strong>ENVIRONMENTAL, SOCIAL AND GOVERNANCE</strong>, highlighting the significance of these aspects in operational research.
+        </p>
+    </div>
+
+    <div class="container mx-auto pt-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Sub Themes -->
+            <div class="bg-white p-8 rounded-lg shadow-lg transition duration-300 hover:bg-green-500 hover:text-gray-700">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Sub Themes</h2>
+                <ul class="list-disc list-inside">
+                    <li>Social responsibility in Operations</li>
+                    <li>Governance and Policy in Operations</li>
+                    <li>Ethical decision-Making in Operations</li>
+                    <li>Technological Innovations in Operational Research</li>
+                    <li>Digital transformation and operation resilience</li>
+                    <li>Environmental Sustainability and Operations Research</li>
+                    <li>Integration of AI and machine learning in operations</li>
+                    <li>Operational Excellence and Performance Management</li>
+                    <li>Cybersecurity and data privacy in operational decision-making</li>
+                </ul>
+            </div>
+    
+            <!-- What to Present -->
+            <div class="bg-white p-8 rounded-lg shadow-lg transition duration-300 hover:bg-green-500 hover:text-gray-700">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">What to Present</h2>
+                <p>
+                    We invite original research papers, case studies, and presentations on topics related to operational research and its applications. Please ensure your submissions adhere to the guidelines provided on our website.
+                </p>
+                <ul class="list-disc list-inside">
+                    <li>Research study</li>
+                    <li>Literature review</li>
+                    <li>Case study / Best practice</li>
+                    <li>Evidence-based analysis</li>
+                    <li>Poster Presentation</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 pt-10">
+            <!-- Who Should Attend -->
+            <div class="bg-white p-8 rounded-lg shadow-lg transition duration-300 hover:bg-green-500 hover:text-gray-700">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Who Should Attend</h2>
+                <ul class="list-disc list-inside">
+                    <li>CEOs, COOs, and Directors</li>
+                    <li>Representatives from governmental organizations</li>
+                    <li>Policy makers and leaders</li>
+                    <li>Departmental heads and heads of operational units</li>
+                    <li>Quality professionals, researchers, and students</li>
+                    <li>Academicians and practitioners from all businesses & industries</li>
+                    <li>Non-profit organizations</li>
+                </ul>
+            </div>
+    
+            <!-- Conference Objectives -->
+            <div class="bg-white p-8 rounded-lg shadow-lg transition duration-300 hover:bg-green-500 hover:text-gray-700">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Conference Objectives</h2>
+                <ul class="list-disc list-inside">
+                    <li>To promote knowledge exchange among researchers and practitioners.</li>
+                    <li>To provide a platform for networking and collaboration.</li>
+                    <li>To discuss the latest trends and challenges in operational research.</li>
+                    <li>To share knowledge on best practices.</li>
+                    <li>To identify future trends.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+
+    <!-- Conference Fees -->
+    <div class="mb-12 pt-10">
+        <h2 class="text-2xl font-bold text-primary mb-4">Conference Fees</h2>
+        <table class="table-auto border-collapse border border-gray-300 w-full text-gray-700">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Category</th>
+                    <th class="border border-gray-300 px-4 py-2">Early Bird Pricing</th>
+                    <th class="border border-gray-300 px-4 py-2">Normal Pricing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Presenter & Participants</td>
+                    <td class="border border-gray-300 px-4 py-2">NRS 8000</td>
+                    <td class="border border-gray-300 px-4 py-2">NRS 10000</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">International Delegates</td>
+                    <td class="border border-gray-300 px-4 py-2">USD 250</td>
+                    <td class="border border-gray-300 px-4 py-2">USD 300</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Poster Presentation</td>
+                    <td class="border border-gray-300 px-4 py-2">NRS 2500</td>
+                    <td class="border border-gray-300 px-4 py-2">NRS 3000</td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="text-gray-700 mt-2">*Special rates are available for group booking above 10 participants.</p>
+    </div>
+
+ 
+</section>
+
+<section class="container mx-auto p-8 relative">
+    <h2 class="text-3xl font-bold text-center mb-8">ORSN Conference Timeline</h2>
+
+    <!-- Arrows for navigation -->
+    <button type="button" id="left-arrow" class="absolute top-1/2 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer transform -translate-y-1/2">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+
+    <button type="button" id="right-arrow" class="absolute top-1/2 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer transform -translate-y-1/2">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+
+    <div class="overflow-hidden relative mt-10">
+        <div class="timeline-line"></div>
+        <div class="timeline-container" id="timeline">
+            <!-- Timeline Items from 2007 to 2024 -->
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">1st International Conference</span>
+                <span>Feb 1-2, 2007</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">2nd International Conference</span>
+                <span>Feb 1-2, 2008</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">3rd International Conference</span>
+                <span>Feb 1-2, 2009</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">4th International Conference</span>
+                <span>Feb 1-2, 2010</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">5th International Conference</span>
+                <span>Feb 1-2, 2011</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">6th International Conference</span>
+                <span>Feb 1-2, 2012</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">7th International Conference</span>
+                <span>Feb 1-2, 2013</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">8th International Conference</span>
+                <span>Feb 1-2, 2014</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">9th International Conference</span>
+                <span>Feb 1-2, 2015</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">10th International Conference</span>
+                <span>Feb 1-2, 2016</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">11th International Conference</span>
+                <span>Feb 1-2, 2017</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">12th International Conference</span>
+                <span>Feb 1-2, 2018</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">13th International Conference</span>
+                <span>Feb 1-2, 2019</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">14th International Conference</span>
+                <span>Feb 1-2, 2020</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">15th International Conference</span>
+                <span>Feb 1-2, 2021</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">16th International Conference</span>
+                <span>Feb 1-2, 2022</span>
+               
+            </div>
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">17th International Conference</span>
+                <span>Feb 1-2, 2023</span>
+               
+            </div>
+
+
+            <!-- Add more timeline items here as needed -->
+
+            <div class="timeline-item">
+                <span class="block text-lg font-semibold">18th International Conference</span>
+                <span>Feb 1-2, 2024</span>
+               
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="bg-primary py-6">
+    <div class="container mx-auto px-4 text-center text-white">
+        <p>&copy; 2024 Ambira Pradhan. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Flowbite and other JS dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+<script>
+    // Countdown Timer Script
+    const countdown = () => {
+        const conferenceDate = new Date("February 1, 2025 08:00:00").getTime(); // Update the date to match the event
+        const now = new Date().getTime();
+        const difference = conferenceDate - now;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours;
+        document.getElementById("minutes").textContent = minutes;
+        document.getElementById("seconds").textContent = seconds;
+
+        if (difference < 0) {
+            document.getElementById("countdown").innerHTML = "Event has started!";
+        }
+    };
+
+    setInterval(countdown, 1000);
+</script>
+
+<script>
+    const timeline = document.getElementById('timeline');
+    const leftArrow = document.getElementById('left-arrow');
+    const rightArrow = document.getElementById('right-arrow');
+    const itemWidth = 250; // Width of the timeline item
+
+    // Move timeline right
+    rightArrow.addEventListener('click', () => {
+        const maxScrollLeft = timeline.scrollWidth - timeline.clientWidth;
+        if (timeline.scrollLeft < maxScrollLeft) {
+            timeline.scrollLeft += itemWidth;
+        }
+    });
+
+    // Move timeline left
+    leftArrow.addEventListener('click', () => {
+        if (timeline.scrollLeft > 0) {
+            timeline.scrollLeft -= itemWidth;
+        }
+    });
+</script>
+<script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.js"></script>
+</body>
+</html>

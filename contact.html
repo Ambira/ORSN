@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORSN Members</title>
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <style>
+        .bg-primary {
+            background-color: #28a745; /* Green background color */
+        }
+        .text-primary {
+            color: #28a745; /* Green text color */
+        }
+        .hover\:text-primary:hover {
+            color: #28a745; /* Green on hover */
+        }
+        .counter-section {
+            background: linear-gradient(135deg, #28a745, #73e500); /* Green gradient */
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+        #timer div {
+            display: inline-block;
+            margin: 0 15px;
+            text-align: center;
+        }
+        #timer span {
+            display: block;
+            font-size: 2rem;
+        }
+        /* Added margin for space below fixed header */
+        .content {
+            margin-top: 80px; /* Space to accommodate the fixed header */
+            margin-bottom: 100px; /* Space to avoid overlap with footer */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <header class="bg-white fixed top-0 w-full shadow-md z-50">
+        <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-green-600">
+                ORSN
+            </div>
+            <nav class="flex space-x-6">
+                <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
+                <a href="conference.html" class="text-gray-700 hover:text-green-600">Conference</a>
+                <a href="journal.html" class="text-gray-700 hover:text-green-600">Journal</a>
+                <a href="members.html" class="text-gray-700 hover:text-green-600">Members</a>
+                <a href="talk_program.html" class="text-gray-700 hover:text-green-600">Talk Program</a>
+                <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="py-16 content">
+        <div class="container mx-auto">
+            <h1 class="text-3xl font-bold mb-8 text-center">Get in Touch</h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-lg font-medium text-gray-700">Your Name</label>
+                        <input type="text" id="name" name="name" class="mt-1 p-3 w-full border rounded-lg" placeholder="Enter your name" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-lg font-medium text-gray-700">Your Email</label>
+                        <input type="email" id="email" name="email" class="mt-1 p-3 w-full border rounded-lg" placeholder="Enter your email" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block text-lg font-medium text-gray-700">Your Message</label>
+                        <textarea id="message" name="message" class="mt-1 p-3 w-full border rounded-lg" placeholder="Enter your message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg">Send Message</button>
+                </form>
+
+                <!-- Contact Information -->
+                <div class="space-y-4">
+                    <h3 class="text-xl font-semibold">Address</h3>
+                    <p>Maharajguni, Kathmandu</p>
+                    <h3 class="text-xl font-semibold">Phone</h3>
+                    <p>(+977) 9841284716 <br>
+                        (+977) 9855030302</p>
+                    <h3 class="text-xl font-semibold">Email</h3>
+                    <p><a href="mailto:info@sundarschool.com" class="text-blue-500">orsn.nepal@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-6">
+        <div class="container mx-auto px-4 text-center text-white">
+            <p>&copy; 2024 Ambira Pradhan. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Flowbite and other JS dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.js"></script>
+</body>
+</html>
