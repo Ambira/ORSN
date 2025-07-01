@@ -1,505 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORSN - Home</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
     <!-- Custom CSS -->
     <style>
         .bg-primary {
-            background-color: #28a745; /* Green background color */
+            background-color: #28a745;
+            /* Green background color */
         }
+
         .text-primary {
-            color: #28a745; /* Green text color */
+            color: #28a745;
+            /* Green text color */
         }
+
         .hover\:text-primary:hover {
-            color: #28a745; /* Green on hover */
+            color: #28a745;
+            /* Green on hover */
         }
+
         .counter-section {
-            background: linear-gradient(135deg, #28a745, #73e500); /* Green gradient */
+            background: linear-gradient(135deg, #28a745, #73e500);
+            /* Green gradient */
             color: white;
             text-align: center;
             padding: 50px 0;
         }
+
         #timer div {
             display: inline-block;
             margin: 0 15px;
             text-align: center;
         }
+
         #timer span {
             display: block;
             font-size: 2rem;
         }
     </style>
 
-<style>
-    /* Sizing and positioning for the timeline */
-    .timeline-container {
-        display: flex;
-        gap: 3rem;
-        overflow: hidden;
-        scroll-behavior: smooth;
-        scroll-snap-type: x mandatory;
-    }
+    <style>
+        /* Sizing and positioning for the timeline */
+        .timeline-container {
+            display: flex;
+            gap: 3rem;
+            overflow: hidden;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
 
-    .timeline-item {
-        width: 250px;
-        text-align: center;
-        padding: 1.5rem;
-        background-color: #0aaf73;
-        border-radius: 10px;
-        color: white;
-        position: relative;
-        scroll-snap-align: start;
-    }
+        .timeline-item {
+            width: 250px;
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #0aaf73;
+            border-radius: 10px;
+            color: white;
+            position: relative;
+            scroll-snap-align: start;
+        }
 
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 20px;
-        height: 20px;
-        background-color: white;
-        border: 3px solid #0aaf73;
-        border-radius: 50%;
-    }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 3px solid #0aaf73;
+            border-radius: 50%;
+        }
 
-    .timeline-line {
-        position: absolute;
-        height: 3px;
-        width: 100%;
-        top: 50%;
-        left: 0;
-        background-color: white;
-        z-index: -1;
-    }
-</style>
+        .timeline-line {
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            top: 50%;
+            left: 0;
+            background-color: white;
+            z-index: -1;
+        }
+    </style>
 </head>
+
 <body class="bg-white-100 text-gray-900">
+    <nav class="bg-white fixed top-0 w-full shadow-md z-50">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="orsn.org.np" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="images/logo.png" class="h-8" alt="ORSN Logo" />
+                <span class="self-center text-2xl font-bold text-green-600 flex items-center whitespace-nowrap">
+                    <!-- Full title for medium (md) and larger screens -->
+                    <span class="hidden md:inline">Operational Research Society of Nepal</span>
+                    <!-- Abbreviation for small (sm) screens -->
+                    <span class="inline md:hidden">ORSN</span>
+                </span>                
+                
 
-<!-- Navigation Bar -->
-<header class="bg-white fixed top-0 w-full shadow-md z-50">
-    <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold text-green-600">
-            ORSN
+            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li><a href="index"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+                    </li>
+                    <li><a href="conference"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Conference</a>
+                    </li>
+                    <li><a href="journal"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Journal</a>
+                    </li>
+                    <li><a href="members"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Members</a>
+                    </li>
+                    <li><a href="talk_program"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Talk
+                            Program</a></li>
+                    <li><a href="contact"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <nav class="flex space-x-6">
-            <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
-            <a href="conference.html" class="text-gray-700 hover:text-green-600">Conference</a>
-            <a href="journal.html" class="text-gray-700 hover:text-green-600">Journal</a>
-            <a href="members.html" class="text-gray-700 hover:text-green-600">Members</a>
-            <a href="talk_program.html" class="text-gray-700 hover:text-green-600">Talk Program</a>
-            <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
-        </nav>
+    </nav>
+
+
+    <!-- Slider Section -->
+    <div id="animation-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-linear" data-carousel-item>
+                <img src="images/apros1.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-linear" data-carousel-item>
+                <img src="images/orsn6.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-linear" data-carousel-item>
+                <img src="images/orsn3.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-linear" data-carousel-item>
+                <img src="images/orsn4.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 5 -->
+            <div class="hidden duration-700 ease-linear" data-carousel-item>
+                <img src="images/orsn5.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+        </div>
+        <!-- Slider controls -->
+        <button type="button"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev>
+            <span
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 1 1 5l4 4" />
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next>
+            <span
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 9 4-4-4-4" />
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
     </div>
-</header>
-
- <!-- Slider Section -->
-<div id="animation-carousel" class="relative w-full" data-carousel="slide">
-    <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-        <!-- Item 1 -->
-        <div class="hidden duration-700 ease-linear" data-carousel-item>
-            <img src="/images/APORS.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <!-- Item 2 -->
-        <div class="hidden duration-700 ease-linear" data-carousel-item>
-            <img src="/images/APORS.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <!-- Item 3 -->
-        <div class="hidden duration-700 ease-linear" data-carousel-item>
-            <img src="/images/APORS.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <!-- Item 4 -->
-        <div class="hidden duration-700 ease-linear" data-carousel-item>
-            <img src="/images/APORS.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-        <!-- Item 5 -->
-        <div class="hidden duration-700 ease-linear" data-carousel-item>
-            <img src="/images/APORS.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-        </div>
-    </div>
-    <!-- Slider controls -->
-    <button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span class="inline-flex items-center justify-center w-8 h-8 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
-</div>
 
 
-<!-- Timer Section -->
-<section class="counter-section bg-gradient1">
-    <div id="countdown">
-        <h2 class="text-3xl font-bold mb-8">ORSN Conference Countdown</h2>
-        <div id="timer">
-            <div>
-                <span id="days">0</span>
-                <span>Days</span>
+    <!-- Timer Section -->
+    <section
+        class="counter-section bg-gradient-to-r from-indigo-500 via-purple-500 to-blue-500 py-2 sm:py-4 flex items-center justify-center">
+        <div id="countdown"
+            class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-sm sm:text-base md:text-lg">
+            <h2 class="text-lg font-semibold sm:text-xl mr-4 w-full text-center">ORSN Conference Countdown:</h2>
+            <div class="flex flex-col items-center w-1/4 sm:w-1/5">
+                <span id="days" class="font-bold text-blue-600 text-xl sm:text-2xl">94</span>
+                <span class="text-xs sm:text-sm">Days</span>
             </div>
-            <div>
-                <span id="hours">0</span>
-                <span>Hours</span>
+            <div class="flex flex-col items-center w-1/4 sm:w-1/5">
+                <span id="hours" class="font-bold text-blue-600 text-xl sm:text-2xl">3</span>
+                <span class="text-xs sm:text-sm">Hours</span>
             </div>
-            <div>
-                <span id="minutes">0</span>
-                <span>Minutes</span>
+            <div class="flex flex-col items-center w-1/4 sm:w-1/5">
+                <span id="minutes" class="font-bold text-blue-600 text-xl sm:text-2xl">45</span>
+                <span class="text-xs sm:text-sm">Minutes</span>
             </div>
-            <div>
-                <span id="seconds">0</span>
-                <span>Seconds</span>
+            <div class="flex flex-col items-center w-1/4 sm:w-1/5">
+                <span id="seconds" class="font-bold text-blue-600 text-xl sm:text-2xl">5</span>
+                <span class="text-xs sm:text-sm">Seconds</span>
             </div>
         </div>
-    </div>
-</section>
-
- <!-- About Section -->
-<section class="container mx-auto px-4 py-12 bg-white"> <!-- Changed py-16 to py-12 -->
-    <div class="flex flex-col md:flex-row items-center">
-        <div class="md:w-1/2">
-            <h2 class="text-3xl font-bold text-primary mb-4">About ORSN</h2>
-            <p class="text-gray-700 mb-6">The Operational Research Society of Nepal (ORSN), established on February 1, 2007, is a professional platform for those involved in Operations Research. As the 53rd national member society of the International Federation of Operational Research Societies (IFORS) and a member of the Asia Pacific Operational Research Societies (APORS), ORSN facilitates knowledge sharing through talks, seminars, workshops, and networking with OR experts globally. ORSN publishes the “International Journal of Operational Research/Nepal (IJORN)” and plans to establish the “Nepalese Institute of Operational Research (NIOR)” in the future. Supported by membership fees, workshops, and contributions, ORSN is dedicated to advancing management science in Nepal by applying scientific tools and techniques to optimize decision-making and resource management across various sectors.
-
-                ORSN is a not-for-profit organization solely run from membership fees and voluntary contributions.
-            </p>
-        </div>
-        <div class="md:w-1/2 mt-8 md:mt-0">
-            <img src="" alt="" class="rounded-lg shadow-lg">
-        </div>
-    </div>
-</section>
+    </section>
 
 
-<!--Conference Information -->
-<section>
-<div class="mt-16 overflow-hidden relative bg-white">
-    <h3 class="text-2xl font-bold text-center mb-6">ORSN Conference</h3>
-    <div class="bg-white rounded-lg shadow-md p-6">
-      <p class="text-gray-700 leading-relaxed mb-4">
-        The annual ORSN Conference is the flagship event of our society, bringing together researchers, practitioners, and students from across Nepal and beyond. It serves as a platform for sharing cutting-edge research, fostering collaborations, and discussing the latest trends and challenges in operations research.
-      </p>
-      <h4 class="text-xl font-semibold mb-2">Conference Themes</h4>
-      <ul class="list-disc list-inside text-gray-700 mb-4">
-        <li>Business and Management</li>
-        <li>Economics and Development Studies</li>
-        <li>Accounting and Finance</li>
-        <li>Marketing and Entrepreneurship</li>
-        <li>Information Technology and its Applications</li>
-        <li>Social Sciences and Humanities</li>
-      </ul>
-      <a href="http://bkcconf.edu.np/" target="_blank" class="inline-block bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition duration-300">Learn More About ORSN Conference</a>
-    </div>
-  </div>
-</div>
-</section>
 
-<!-- Executive Board -->
-<section id="executive-board" class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Executive Members (2023-2025)</h2> <!-- Updated header -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- President -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Govinda Tamang" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Dr. Govinda Tamang</h3>
-                <p class="text-gray-600 dark:text-gray-400">President</p>
+
+
+
+
+    <!-- About Section -->
+    <section class="container mx-auto px-4 py-12 bg-white"> <!-- Changed py-16 to py-12 -->
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2">
+                <h2 class="text-3xl font-bold text-primary mb-4">About ORSN</h2>
+                <p class="text-gray-700 mb-6">The Operational Research Society of Nepal (ORSN), established on February
+                    1, 2007, is a professional platform for those involved in Operations Research. As the 53rd national
+                    member society of the International Federation of Operational Research Societies (IFORS) and a
+                    member of the Asia Pacific Operational Research Societies (APORS), ORSN facilitates knowledge
+                    sharing through talks, seminars, workshops, and networking with OR experts globally. ORSN publishes
+                    the “International Journal of Operational Research/Nepal (IJORN)” and plans to establish the
+                    “Nepalese Institute of Operational Research (NIOR)” in the future. Supported by membership fees,
+                    workshops, and contributions, ORSN is dedicated to advancing management science in Nepal by applying
+                    scientific tools and techniques to optimize decision-making and resource management across various
+                    sectors.
+
+                    ORSN is a not-for-profit organization solely run from membership fees and voluntary contributions.
+                </p>
             </div>
-            <!-- Vice President -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Krishna Nakarmi" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Krishna Nakarmi</h3>
-                <p class="text-gray-600 dark:text-gray-400">Vice President</p>
-            </div>
-            <!-- General Secretary -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Bijay Lal Pradhan" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Dr. Bijay Lal Pradhan</h3>
-                <p class="text-gray-600 dark:text-gray-400">General Secretary</p>
-            </div>
-            <!-- Secretary -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Saroj Gyawali" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Dr. Saroj Gyawali</h3>
-                <p class="text-gray-600 dark:text-gray-400">Secretary</p>
-            </div>
-            <!-- Treasurer -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Satya Bahadur Shrestha" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Satya Bahadur Shrestha</h3>
-                <p class="text-gray-600 dark:text-gray-400">Treasurer</p>
-            </div>
-            <!-- Member (IPP) -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Sunity Shrestha Hada" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Prof. Dr. Sunity Shrestha Hada</h3>
-                <p class="text-gray-600 dark:text-gray-400">Member (IPP)</p>
-            </div>
-            <!-- Member 1 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Raju Manandhar" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Raju Manandhar</h3>
-                <p class="text-gray-600 dark:text-gray-400">Member</p>
-            </div>
-            <!-- Member 2 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Dipendra Purush Dhakal" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Dipendra Purush Dhakal</h3>
-                <p class="text-gray-600 dark:text-gray-400">Member</p>
-            </div>
-            <!-- Member 3 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Nabaraj Poudyal" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Nabaraj Poudyal</h3>
-                <p class="text-gray-600 dark:text-gray-400">Member</p>
-            </div>
-            <!-- Member 4 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Devilal Sharma" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Devilal Sharma</h3>
-                <p class="text-gray-600 dark:text-gray-400">Member</p>
-            </div>
-            <!-- Member 5 -->
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
-                <img src="https://source.unsplash.com/random/150x150?portrait" alt="Phanindra Bhandari" class="w-32 h-32 rounded-full mx-auto mb-4">
-                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Dr. Phanindra Bhandari</h3>
-                <p class="text-gray-600 dark:text-gray-400">Member</p>
+            <div class="md:w-1/2 mt-8 md:mt-0">
+                <img src="" alt="" class="rounded-lg shadow-lg">
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-  
- <!-- Talk Program -->
-<section id="talk-program" class="bg-white-100 mx-auto px-4 py-12 content-padding"> <!-- Changed py-16 to py-12 -->
-    <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">
-            <a href="talk_program.html" class="text-blue-600 hover:underline">Talk Program</a>
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!--Conference Information -->
+    <section>
+        <div class="mt-16 overflow-hidden relative bg-white">
+            <h3 class="text-2xl font-bold text-center mb-6">ORSN Conference</h3>
             <div class="bg-white rounded-lg shadow-md p-6">
-                <div class="col-md-12 video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/vtnTmprX_0Y?si=pSYEiwsLQRd9T4e0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    The annual ORSN Conference is the flagship event of our society, bringing together researchers,
+                    practitioners, and students from across Nepal and beyond. It serves as a platform for sharing
+                    cutting-edge research, fostering collaborations, and discussing the latest trends and challenges in
+                    operations research.
+                </p>
+                <h4 class="text-xl font-semibold mb-2">Conference Area</h4>
+                <ul class="list-disc list-inside text-gray-700 mb-4">
+                    <li>Business and Management</li>
+                    <li>Economics and Development Studies</li>
+                    <li>Accounting and Finance</li>
+                    <li>Marketing and Entrepreneurship</li>
+                    <li>Information Technology and its Applications</li>
+                    <li>Social Sciences and Humanities</li>
+                </ul>
+                <a href="http://orsn.org.np/conference" target="_blank"
+                    class="inline-block bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition duration-300">Learn
+                    More About Forthcoming ORSN Conference</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Executive Board -->
+    <section id="executive-board" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Executive Members (2023-2025)</h2> <!-- Updated header -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- President -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/govinda.jpg" alt="Govinda Tamang" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Dr. Govinda Tamang</h3>
+                    <p class="text-gray-600 dark:text-gray-400">President</p>
+                </div>
+                <!-- Vice President -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/krishna.jpg" alt="Krishna Nakarmi" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Krishna Nakarmi</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Vice President</p>
+                </div>
+                <!-- General Secretary -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/bijay.jpg" alt="Bijay Lal Pradhan" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white"><a
+                            href="https://bijaylalpradhan.com.np">Dr. Bijay Lal Pradhan</a></h3>
+                    <p class="text-gray-600 dark:text-gray-400">General Secretary</p>
+                </div>
+                <!-- Secretary -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/Saroj.jpg" alt="Saroj Gyawali" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Dr. Saroj Gyawali</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Secretary</p>
+                </div>
+                <!-- Treasurer -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/satya.jpg" alt="Satya Bahadur Shrestha"
+                        class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Satya Bahadur Shrestha</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Treasurer</p>
+                </div>
+                <!-- Member (IPP) -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/sunity.jpg" alt="Sunity Shrestha Hada" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Prof. Dr. Sunity Shrestha Hada
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400">Member (IPP)</p>
+                </div>
+                <!-- Member 1 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/Raju.jpg" alt="Raju Manandhar" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Raju Manandhar</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Member</p>
+                </div>
+                <!-- Member 2 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/dipendra.jpg" alt="Dipendra Purush Dhakal"
+                        class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Dipendra Purush Dhakal</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Member</p>
+                </div>
+                <!-- Member 3 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/Nabaraj.jpg" alt="Nabaraj Poudyal" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Nabaraj Poudyal</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Member</p>
+                </div>
+                <!-- Member 4 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/Devilal.jpg" alt="Devilal Sharma" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Mr. Devilal Sharma</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Member</p>
+                </div>
+                <!-- Member 5 -->
+                <div
+                    class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 p-6 text-center">
+                    <img src="images/pha.jpg" alt="Phanindra Bhandari" class="w-32 h-32 rounded-full mx-auto mb-4">
+                    <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Dr. Phanindra Bhandari</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Member</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 
-  
 
-
-  <section class="container mx-auto p-8 relative">
-    <h2 class="text-3xl font-bold text-center mb-8">ORSN Conference Timeline</h2>
-
-    <!-- Arrows for navigation -->
-    <button type="button" id="left-arrow" class="absolute top-1/2 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer transform -translate-y-1/2">
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-            </svg>
-            <span class="sr-only">Previous</span>
-        </span>
-    </button>
-
-    <button type="button" id="right-arrow" class="absolute top-1/2 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer transform -translate-y-1/2">
-        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-            </svg>
-            <span class="sr-only">Next</span>
-        </span>
-    </button>
-
-    <div class="overflow-hidden relative mt-10">
-        <div class="timeline-line"></div>
-        <div class="timeline-container" id="timeline">
-            <!-- Timeline Items from 2007 to 2024 -->
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">1st International Conference</span>
-                <span>Feb 1-2, 2007</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">2nd International Conference</span>
-                <span>Feb 1-2, 2008</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">3rd International Conference</span>
-                <span>Feb 1-2, 2009</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">4th International Conference</span>
-                <span>Feb 1-2, 2010</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">5th International Conference</span>
-                <span>Feb 1-2, 2011</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">6th International Conference</span>
-                <span>Feb 1-2, 2012</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">7th International Conference</span>
-                <span>Feb 1-2, 2013</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">8th International Conference</span>
-                <span>Feb 1-2, 2014</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">9th International Conference</span>
-                <span>Feb 1-2, 2015</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">10th International Conference</span>
-                <span>Feb 1-2, 2016</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">11th International Conference</span>
-                <span>Feb 1-2, 2017</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">12th International Conference</span>
-                <span>Feb 1-2, 2018</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">13th International Conference</span>
-                <span>Feb 1-2, 2019</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">14th International Conference</span>
-                <span>Feb 1-2, 2020</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">15th International Conference</span>
-                <span>Feb 1-2, 2021</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">16th International Conference</span>
-                <span>Feb 1-2, 2022</span>
-               
-            </div>
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">17th International Conference</span>
-                <span>Feb 1-2, 2023</span>
-               
-            </div>
-
-
-            <!-- Add more timeline items here as needed -->
-
-            <div class="timeline-item">
-                <span class="block text-lg font-semibold">18th International Conference</span>
-                <span>Feb 1-2, 2024</span>
-               
+    <!-- Talk Program -->
+    <section id="talk-program" class="bg-white-100 mx-auto px-4 py-12 content-padding">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">
+                <a href="talk_program.html" class="text-blue-600 hover:underline">Talk Program</a>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <div class="relative overflow-hidden" style="padding-top: 56.25%;"> <!-- Aspect ratio for 16:9 -->
+                        <iframe class="absolute top-0 left-0 w-full h-full"
+                            src="https://www.youtube.com/embed/vtnTmprX_0Y?si=pSYEiwsLQRd9T4e0"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<footer class="bg-primary py-6">
-    <div class="container mx-auto px-4 text-center text-white">
-        <p>&copy; 2024 Ambira Pradhan. All rights reserved.</p>
-    </div>
-</footer>
 
-<!-- Flowbite and other JS dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
-<script>
-    // Countdown Timer Script
-    const countdown = () => {
-        const conferenceDate = new Date("February 1, 2025 08:00:00").getTime(); // Update the date to match the event
-        const now = new Date().getTime();
-        const difference = conferenceDate - now;
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        document.getElementById("days").textContent = days;
-        document.getElementById("hours").textContent = hours;
-        document.getElementById("minutes").textContent = minutes;
-        document.getElementById("seconds").textContent = seconds;
 
-        if (difference < 0) {
-            document.getElementById("countdown").innerHTML = "Event has started!";
-        }
-    };
 
-    setInterval(countdown, 1000);
-</script>
+    <section class="container mx-auto p-8 relative">
+        <h2 class="text-3xl font-bold text-center mb-8">ORSN Conference Timeline</h2>
 
-<script>
-    const timeline = document.getElementById('timeline');
-    const leftArrow = document.getElementById('left-arrow');
-    const rightArrow = document.getElementById('right-arrow');
-    const itemWidth = 250; // Width of the timeline item
+        <!-- Arrows for navigation -->
+        <button type="button" id="left-arrow"
+            class="absolute top-1/2 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer transform -translate-y-1/2">
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 1 1 5l4 4" />
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
 
-    // Move timeline right
-    rightArrow.addEventListener('click', () => {
-        const maxScrollLeft = timeline.scrollWidth - timeline.clientWidth;
-        if (timeline.scrollLeft < maxScrollLeft) {
-            timeline.scrollLeft += itemWidth;
-        }
-    });
+        <button type="button" id="right-arrow"
+            class="absolute top-1/2 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer transform -translate-y-1/2">
+            <span
+                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 9 4-4-4-4" />
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
 
-    // Move timeline left
-    leftArrow.addEventListener('click', () => {
-        if (timeline.scrollLeft > 0) {
-            timeline.scrollLeft -= itemWidth;
-        }
-    });
-</script>
-<script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.js"></script>
+        <div class="overflow-hidden relative mt-10">
+            <div class="timeline-line"></div>
+            <div class="timeline-container" id="timeline">
+                <!-- Timeline Items from 2007 to 2024 -->
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">1st International Conference</span>
+                    <span>Feb 1-2, 2007</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">2nd International Conference</span>
+                    <span>Feb 1-2, 2008</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">3rd International Conference</span>
+                    <span>Feb 1-2, 2009</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">4th International Conference</span>
+                    <span>Feb 1-2, 2010</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">5th International Conference</span>
+                    <span>Feb 1-2, 2011</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">6th International Conference</span>
+                    <span>Feb 1-2, 2012</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">7th International Conference</span>
+                    <span>Feb 1-2, 2013</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">8th International Conference</span>
+                    <span>Feb 1-2, 2014</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">9th International Conference</span>
+                    <span>Feb 1-2, 2015</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">10th International Conference</span>
+                    <span>Feb 1-2, 2016</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">11th International Conference</span>
+                    <span>Feb 1-2, 2017</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">12th International Conference</span>
+                    <span>Feb 1-2, 2018</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">13th International Conference</span>
+                    <span>Feb 1-2, 2019</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">14th International Conference</span>
+                    <span>Feb 1-2, 2020</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">15th International Conference</span>
+                    <span>Feb 1-2, 2021</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">16th International Conference</span>
+                    <span>Feb 1-2, 2022</span>
+
+                </div>
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">17th International Conference</span>
+                    <span>Feb 1-2, 2023</span>
+
+                </div>
+
+
+                <!-- Add more timeline items here as needed -->
+
+                <div class="timeline-item">
+                    <span class="block text-lg font-semibold">18th International Conference</span>
+                    <span>Feb 1-2, 2024</span>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-6">
+        <div class="container mx-auto px-4 text-center text-white">
+            <p>&copy; 2024 ORSN. All rights reserved. &nbsp; &nbsp; &nbsp;&nbsp;Design: <a
+                    href="https://ambirapradhan.com.np">Ambira Pradhan</a></p>
+        </div>
+    </footer>
+
+    <!-- Flowbite and other JS dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+    <script>
+        // Countdown Timer Script
+        const countdown = () => {
+            const conferenceDate = new Date("February 1, 2026 08:00:00").getTime(); // Update the date to match the event
+            const now = new Date().getTime();
+            const difference = conferenceDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days;
+            document.getElementById("hours").textContent = hours;
+            document.getElementById("minutes").textContent = minutes;
+            document.getElementById("seconds").textContent = seconds;
+
+            if (difference < 0) {
+                document.getElementById("countdown").innerHTML = "Event has started!";
+            }
+        };
+
+        setInterval(countdown, 1000);
+    </script>
+
+    <script>
+        const timeline = document.getElementById('timeline');
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+        const itemWidth = 250; // Width of the timeline item
+
+        // Move timeline right
+        rightArrow.addEventListener('click', () => {
+            const maxScrollLeft = timeline.scrollWidth - timeline.clientWidth;
+            if (timeline.scrollLeft < maxScrollLeft) {
+                timeline.scrollLeft += itemWidth;
+            }
+        });
+
+        // Move timeline left
+        leftArrow.addEventListener('click', () => {
+            if (timeline.scrollLeft > 0) {
+                timeline.scrollLeft -= itemWidth;
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </body>
+
 </html>

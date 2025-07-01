@@ -6,8 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORSN - Home</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
     <!-- Custom CSS -->
     <style>
         .bg-primary {
@@ -83,79 +85,105 @@
 </head>
 <body class="bg-white-100 text-gray-900">
 
-<!-- Navigation Bar -->
-<header class="bg-white fixed top-0 w-full shadow-md z-50">
-    <div class="max-w-screen-xl mx-auto px-4 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold text-green-600">
-            ORSN
-        </div>
-        <nav class="flex space-x-6">
-            <a href="index.html" class="text-gray-700 hover:text-green-600">Home</a>
-            <a href="conference.html" class="text-gray-700 hover:text-green-600">Conference</a>
-            <a href="journal.html" class="text-gray-700 hover:text-green-600">Journal</a>
-            <a href="members.html" class="text-gray-700 hover:text-green-600">Members</a>
-            <a href="talk_program.html" class="text-gray-700 hover:text-green-600">Talk Program</a>
-            <a href="contact.html" class="text-gray-700 hover:text-green-600">Contact</a>
-        </nav>
-    </div>
-</header>
-
-<div class="relative w-full h-screen bg-cover bg-center" style="background-image: url('/images/APORS.jpg');">
-    <!-- Custom RGBA Overlay for better visibility -->
-    <div class="absolute inset-0" style="background-color: rgba(255, 255, 255, 0.4);"></div> <!-- Light transparent white -->
-
-    <!-- Content Wrapper -->
-    <div class="relative z-10 flex flex-col items-center justify-center h-full text-black-100 text-center">
-        <h1 class="text-5xl font-bold mb-4">CONFERENCE</h1>
-        <h2 class="text-3xl mb-8">ORSN Conference</h2>
-       
-        <!-- Buttons -->
-        <div class="flex justify-between w-full max-w-xs mt-8 pt-10 pb-8">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScE6eedcYw8ZH6H8kPCb8T0nbR5PAVODThYJCqKzrpygUM9jg/viewform?usp=sf_link" 
-               class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4">
-                Register
+    <nav class="bg-white fixed top-0 w-full shadow-md z-50">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="orsn.org.np" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="images/logo.png" class="h-8" alt="ORSN Logo" />
+                <span class="self-center text-2xl font-bold text-green-600 flex items-center whitespace-nowrap">
+                    <!-- Full title for medium (md) and larger screens -->
+                    <span class="hidden md:inline">Operational Research Society of Nepal</span>
+                    <!-- Abbreviation for small (sm) screens -->
+                    <span class="inline md:hidden">ORSN</span>
+                </span>
             </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScecUCyY4_h2nWjgLwTDWvycpUg3r2NGNXq_MXszgpk7dKqNQ/viewform?usp=sf_link" 
-               class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Submit Abstract
-            </a>
+            <button data-collapse-toggle="navbar-default" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul
+                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
+                    <li><a href="index"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0">Home</a>
+                    </li>
+                    <li><a href="conference"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0">Conference</a>
+                    </li>
+                    <li><a href="journal"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0">Journal</a>
+                    </li>
+                    <li><a href="members"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0">Members</a>
+                    </li>
+                    <li><a href="talk_program"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0">Talk Program</a></li>
+                    <li><a href="contact"
+                            class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0">Contact</a>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </nav>
+    
 
-         <!-- Timer Section -->
-         <div class="mt-8 bg-opacity-50 rounded-lg p-6">
-            <h2 class="text-2xl font-semibold mb-4">ORSN Conference Countdown</h2>
-            <div id="timer" class="flex justify-center space-x-4 text-lg font-bold">
-                <div class="text-center">
-                    <span id="days" class="block text-3xl">0</span>
-                    <span>Days</span>
-                </div>
-                <div class="text-center">
-                    <span id="hours" class="block text-3xl">0</span>
-                    <span>Hours</span>
-                </div>
-                <div class="text-center">
-                    <span id="minutes" class="block text-3xl">0</span>
-                    <span>Minutes</span>
-                </div>
-                <div class="text-center">
-                    <span id="seconds" class="block text-3xl">0</span>
-                    <span>Seconds</span>
+    <div class="relative w-full h-full sm:h-screen bg-cover bg-center" style="background-image: url('images/APORS.jpg');">
+        <div class="absolute inset-0" style="background-color: rgba(255, 255, 255, 0.5);"></div>
+    
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-black-100 text-center p-4 pt-10">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4 pt-16">CONFERENCE</h1>
+            <h2 class="text-2xl sm:text-3xl mb-8">17<sup>th </sup>ORSN International Conference, Kathmandu, NEPAL</h2>
+           
+            <div class="flex flex-wrap justify-center gap-4 w-full max-w-xl mt-8 pt-2 pb-8">
+                <a href="images/APORS.jpg" target="_blank"
+                class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto">
+                    Brochure
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScE6eedcYw8ZH6H8kPCb8T0nbR5PAVODThYJCqKzrpygUM9jg/viewform?usp=sf_link1" 
+                   class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto">
+                    Submit Abstract
+                </a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScecUCyY4_h2nWjgLwTDWvycpUg3r2NGNXq_MXszgpk7dKqNQ/viewform?usp=sf_link1" 
+                   class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto">
+                   Register
+                </a>
+            </div>
+    
+            <!-- Timer Section -->
+            <div class="mt-8 bg-opacity-50 rounded-lg p-2">
+                <h2 class="text-xl sm:text-2xl font-semibold mb-4">ORSN Conference Countdown</h2>
+                <div id="timer" class="flex flex-wrap justify-center space-x-4 text-lg font-bold">
+                    <div class="text-center">
+                        <span id="days" class="block text-2xl sm:text-3xl">0</span>
+                        <span>Days</span>
+                    </div>
+                    <div class="text-center">
+                        <span id="hours" class="block text-2xl sm:text-3xl">0</span>
+                        <span>Hours</span>
+                    </div>
+                    <div class="text-center">
+                        <span id="minutes" class="block text-2xl sm:text-3xl ">0</span>
+                        <span>Minutes</span>
+                    </div>
+                    <div class="text-center">
+                        <span id="seconds" class="block text-2xl sm:text-3xl ">0</span>
+                        <span>Seconds</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
-
-
 
 <!-- Conference Section -->
-<section class="container mx-auto px-4 py-16 p-6">
+<section class="container mx-auto px-2 py-2 p-2">
     <div class="section-header">
-        <h1 class="text-4xl font-bold text-primary pt-10">Conference</h1>
-        <p class="text-xl mt-2">Welcome to the Operational Research Conference</p>
-    </div>
+        <h1 class="text-2xl font-bold text-primary pt-10">Conference Organizer: </h1>
+        <p class="text-gray-700"><a href ="#"><b> </div>
 
     <!-- Conference Theme -->
     <div class="mb-12">
@@ -167,7 +195,40 @@
             The theme for this year's conference is <strong>ENVIRONMENTAL, SOCIAL AND GOVERNANCE</strong>, highlighting the significance of these aspects in operational research.
         </p>
     </div>
-
+    <!-- Conference Date -->
+    <div class="mb-12 pt-10">
+        <h2 class="text-2xl font-bold text-primary mb-4">Conference Date</h2>
+        <table class="table-auto border-collapse border border-gray-300 w-full text-gray-700">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 px-4 py-2">Event</th>
+                    <th class="border border-gray-300 px-4 py-2">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Last date for abstract submission</td>
+                    <td class="border border-gray-300 px-4 py-2">31<sup>st</sup> Oct, 2025</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Acceptance Notification</td>
+                    <td class="border border-gray-300 px-4 py-2">20<sup>th</sup> Nov, 2025</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Full paper submission</td>
+                    <td class="border border-gray-300 px-4 py-2">20<sup>th</sup> Dec, 2025</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Early Bird Registration Ends</td>
+                    <td class="border border-gray-300 px-4 py-2">25<sup>th</sup> Dec, 2025</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-300 px-4 py-2">Conference Day</td>
+                    <td class="border border-gray-300 px-4 py-2">1-2<sup></sup> Feb, 2026</td>
+                </tr>
+            </tbody>
+        </table>      
+    </div>
     <div class="container mx-auto pt-10">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <!-- Sub Themes -->
@@ -241,7 +302,7 @@
             <thead>
                 <tr>
                     <th class="border border-gray-300 px-4 py-2">Category</th>
-                    <th class="border border-gray-300 px-4 py-2">Early Bird Pricing</th>
+                    <th class="border border-gray-300 px-4 py-2">Early Bird Pricing </th>
                     <th class="border border-gray-300 px-4 py-2">Normal Pricing</th>
                 </tr>
             </thead>
@@ -298,6 +359,7 @@
             <div class="timeline-item">
                 <span class="block text-lg font-semibold">1st International Conference</span>
                 <span>Feb 1-2, 2007</span>
+                <span>Kathmandu</span>
                
             </div>
 
@@ -370,30 +432,35 @@
             <div class="timeline-item">
                 <span class="block text-lg font-semibold">13th International Conference</span>
                 <span>Feb 1-2, 2019</span>
+
                
             </div>
 
             <div class="timeline-item">
                 <span class="block text-lg font-semibold">14th International Conference</span>
                 <span>Feb 1-2, 2020</span>
+                <span>Pokhara</span>
                
             </div>
 
             <div class="timeline-item">
                 <span class="block text-lg font-semibold">15th International Conference</span>
                 <span>Feb 1-2, 2021</span>
+                <span>Online</span>
                
             </div>
 
             <div class="timeline-item">
                 <span class="block text-lg font-semibold">16th International Conference</span>
                 <span>Feb 1-2, 2022</span>
+                <span>Online</span>
                
             </div>
 
             <div class="timeline-item">
                 <span class="block text-lg font-semibold">17th International Conference</span>
                 <span>Feb 1-2, 2023</span>
+                <span>Hetauda</span>
                
             </div>
 
@@ -403,6 +470,7 @@
             <div class="timeline-item">
                 <span class="block text-lg font-semibold">18th International Conference</span>
                 <span>Feb 1-2, 2024</span>
+                <span>Bhaktapur</span>
                
             </div>
         </div>
@@ -414,16 +482,15 @@
 <!-- Footer -->
 <footer class="bg-primary py-6">
     <div class="container mx-auto px-4 text-center text-white">
-        <p>&copy; 2024 Ambira Pradhan. All rights reserved.</p>
+        <p>&copy; 2024 ORSN. All rights reserved. &nbsp; &nbsp; &nbsp;&nbsp;Design: <a href="https://ambirapradhan.com.np">Ambira Pradhan</a></p>
     </div>
 </footer>
 
-<!-- Flowbite and other JS dependencies -->
-<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+
 <script>
     // Countdown Timer Script
     const countdown = () => {
-        const conferenceDate = new Date("February 1, 2025 08:00:00").getTime(); // Update the date to match the event
+        const conferenceDate = new Date("February 1, 2026 08:00:00").getTime(); // Update the date to match the event
         const now = new Date().getTime();
         const difference = conferenceDate - now;
 
@@ -466,6 +533,6 @@
         }
     });
 </script>
-<script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 </body>
 </html>
